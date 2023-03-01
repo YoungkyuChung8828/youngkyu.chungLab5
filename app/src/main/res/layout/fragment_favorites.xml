@@ -1,16 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FavoritesFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="24sp"
         android:background="@color/Favorites_Bkground"
-        android:text="@string/hello_favorites_fragment" />
+        android:text="@string/hello_favorites_fragment"
+        android:textSize="24sp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="214dp"
+        android:layout_height="323dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/sky"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="140dp"
+        android:textColor="@color/red"
+        android:textStyle="bold|italic"
+        android:text="@string/Name" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="140dp"
+        android:textColor="@color/red"
+        android:textStyle="bold|italic"
+        android:text="@string/Student_no" />
 
 </FrameLayout>

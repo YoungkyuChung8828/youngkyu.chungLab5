@@ -13,4 +13,6 @@
         android:background="@color/Settings_Bkground"
         android:text="@string/hello_settings_fragment" />
 
+
+
 </FrameLayout>

@@ -10,4 +10,5 @@
     <color name="Favorites_Bkground">#CFDFCD</color>
     <color name="Settings_Bkground">#EFDECD</color>
     <color name="Home_Bkground">#CFDCDF</color>
+    <color name="red">#FF0000</color>
 </resources>
