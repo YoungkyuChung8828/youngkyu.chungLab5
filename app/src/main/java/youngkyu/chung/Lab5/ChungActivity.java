@@ -34,6 +34,10 @@ public class ChungActivity extends AppCompatActivity implements TabLayoutMediato
         titles.add("Favorites");
 
         new TabLayoutMediator(tabLayout, viewPager2, this).attach();
+
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_home);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_settings);
+        tabLayout.getTabAt(2).setIcon(R.drawable.ic_favorites);
     }
     public void setViewPagerAdapter() {
         ViewPager2Adapter viewPager2Adapter = new ViewPager2Adapter(this);
@@ -51,6 +55,6 @@ public class ChungActivity extends AppCompatActivity implements TabLayoutMediato
 
     @Override
     public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
-
+        tab.setText(titles.get(position)); // when tab each list change the page
     }
 }
