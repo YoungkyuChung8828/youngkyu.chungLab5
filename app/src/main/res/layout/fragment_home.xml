@@ -13,4 +13,71 @@
         android:background="@color/Home_Bkground"
         android:text="@string/hello_home_fragment" />
 
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="200dp"
+        android:text="To :"
+        />
+
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteTextView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="210dp"
+        android:ems="10"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="270dp"
+        android:text="subject : "
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="13dp"
+        />
+
+    <EditText
+        android:id="@+id/et_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="290dp"
+        ></EditText>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="340dp"
+        android:text="Content : "
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="13dp"
+        />
+
+    <EditText
+        android:id="@+id/et_message"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="360dp"
+        android:gravity="top"
+        android:inputType="textMultiLine"
+        android:lines="5"
+        />
+
+    <Button
+        android:id="@+id/bt_send"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="580dp"
+        android:onClick="onClickSend"
+        android:text="SEND"
+        />
+
 </FrameLayout>

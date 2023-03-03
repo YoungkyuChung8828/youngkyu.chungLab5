@@ -8,4 +8,17 @@
     <string name="hello_favorites_fragment">Hello favorites fragment</string>
     <string name="Name">Youngkyu.Chung</string>
     <string name="Student_no">n01468828</string>
+
+    <string name="example_autocompletetextview">To :</string>
+
+    <string-array name="email">
+        <item>young@gmail.com</item>
+        <item>kyu@gmail.com</item>
+        <item>ying@gmail.com</item>
+        <item>kui@gmail.com</item>
+        <item>chug@gmail.com</item>
+        <item>jung@gmail.com</item>
+    </string-array>
+
+
 </resources>

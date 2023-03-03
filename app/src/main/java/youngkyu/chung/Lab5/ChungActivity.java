@@ -4,13 +4,22 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
-
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+
+import android.app.Activity;
+import android.view.Menu;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 import java.util.ArrayList;
+
+
+
 
 public class ChungActivity extends AppCompatActivity implements TabLayoutMediator.TabConfigurationStrategy {
     // implements is extend interface
@@ -18,6 +27,10 @@ public class ChungActivity extends AppCompatActivity implements TabLayoutMediato
     private TabLayout tabLayout;
     ArrayList<String> titles;
 
+
+
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +51,9 @@ public class ChungActivity extends AppCompatActivity implements TabLayoutMediato
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_home);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_settings);
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_favorites);
+
     }
+
     public void setViewPagerAdapter() {
         ViewPager2Adapter viewPager2Adapter = new ViewPager2Adapter(this);
 
@@ -57,4 +72,6 @@ public class ChungActivity extends AppCompatActivity implements TabLayoutMediato
     public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
         tab.setText(titles.get(position)); // when tab each list change the page
     }
+
+
 }
