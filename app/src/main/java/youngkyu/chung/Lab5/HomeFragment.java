@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.EditText;
 
 /**
@@ -19,8 +20,7 @@ import android.widget.EditText;
  */
 public class HomeFragment extends Fragment {
     AutoCompleteTextView autocomplete;
-    String[] arr = { "Paries,France", "PA,United States","Parana,Brazil",
-            "Padua,Italy", "Pasadena,CA,United States"};
+
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -69,10 +69,21 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
-    }
 
+        String[] email = getResources().getStringArray(R.array.email);
+
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String> (getActivity(),android.R.layout.select_dialog_item, email);
+        AutoCompleteTextView textView=(AutoCompleteTextView) view.findViewById(R.id.autoCompleteTextView1);
+        textView.setThreshold(1);
+        textView.setAdapter(adapter);
+
+        Button button = view.findViewById(R.id.bt_send);
+
+        return view;
+    }
 
 
 
