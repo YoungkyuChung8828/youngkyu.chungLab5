@@ -3,15 +3,13 @@ package youngkyu.chung.Lab5;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.widget.ViewPager2;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-
-import android.app.Activity;
-import android.view.Menu;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-
+import android.view.View;
+import android.widget.Button;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
@@ -72,6 +70,5 @@ public class ChungActivity extends AppCompatActivity implements TabLayoutMediato
     public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
         tab.setText(titles.get(position)); // when tab each list change the page
     }
-
 
 }

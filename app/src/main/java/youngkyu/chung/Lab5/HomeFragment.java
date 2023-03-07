@@ -5,13 +5,18 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
+
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,8 +24,8 @@ import android.widget.EditText;
  * create an instance of this fragment.
  */
 public class HomeFragment extends Fragment {
-    AutoCompleteTextView autocomplete;
 
+    private AutoCompleteTextView autoCompleteTextView;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -65,7 +70,7 @@ public class HomeFragment extends Fragment {
         }
 
     }
-
+    View view;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -76,16 +81,35 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String> (getActivity(),android.R.layout.select_dialog_item, email);
-        AutoCompleteTextView textView=(AutoCompleteTextView) view.findViewById(R.id.autoCompleteTextView1);
+        AutoCompleteTextView textView=(AutoCompleteTextView) view.findViewById(R.id.autoCompleteTextView);
         textView.setThreshold(1);
         textView.setAdapter(adapter);
 
-        Button button = view.findViewById(R.id.bt_send);
+    autoCompleteTextView = view.findViewById(R.id.autoCompleteTextView);
+    Button button = view.findViewById(R.id.bt_send);
+    button.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            String email = autoCompleteTextView.getText().toString().trim();
+            if(email.isEmpty()){
+                autoCompleteTextView.setError("Email is required.");
+            } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                autoCompleteTextView.setError("Invalid email format.");
+            }else{
+                SettingsFragment settingsFragment = new SettingsFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("email",email);
+                settingsFragment.setArguments(bundle);
+                getParentFragmentManager().beginTransaction()
+                        .replace(R.id.tabLayout,settingsFragment,"settingsFragment")
+                        .addToBackStack(null)
+                        .commit();
 
+                autoCompleteTextView.setText("");
+            }
+        }
+    });
         return view;
     }
-
-
-
 
 }

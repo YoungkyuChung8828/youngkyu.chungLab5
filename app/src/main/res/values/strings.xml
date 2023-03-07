@@ -10,6 +10,7 @@
     <string name="Student_no">n01468828</string>
 
     <string name="example_autocompletetextview">To :</string>
+    <string name="no_data">NO DATA</string>
 
     <string-array name="email">
         <item>young@gmail.com</item>
