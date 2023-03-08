@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.viewpager2.widget.ViewPager2;
 
 
 import android.util.Patterns;
@@ -85,31 +86,40 @@ public class HomeFragment extends Fragment {
         textView.setThreshold(1);
         textView.setAdapter(adapter);
 
-    autoCompleteTextView = view.findViewById(R.id.autoCompleteTextView);
-    Button button = view.findViewById(R.id.bt_send);
-    button.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            String email = autoCompleteTextView.getText().toString().trim();
-            if(email.isEmpty()){
-                autoCompleteTextView.setError("Email is required.");
-            } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                autoCompleteTextView.setError("Invalid email format.");
-            }else{
+        autoCompleteTextView = view.findViewById(R.id.autoCompleteTextView);
+        Button button = view.findViewById(R.id.bt_send);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String email = autoCompleteTextView.getText().toString().trim();
+                String nodata = "NO DATA";
                 SettingsFragment settingsFragment = new SettingsFragment();
-                Bundle bundle = new Bundle();
-                bundle.putString("email",email);
-                settingsFragment.setArguments(bundle);
-                getParentFragmentManager().beginTransaction()
-                        .replace(R.id.tabLayout,settingsFragment,"settingsFragment")
-                        .addToBackStack(null)
-                        .commit();
 
+                Bundle bundle = new Bundle();
+                if(email.isEmpty()){
+                    autoCompleteTextView.setError("Email is required.");
+
+
+
+                } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    autoCompleteTextView.setError("Invalid email format.");
+
+
+                }else{
+                    bundle.putString("email",email);
+                    settingsFragment.setArguments(bundle);
+                    ViewPager2 vp2 = (ViewPager2) getActivity().findViewById(R.id.viewPager2);
+                    ViewPager2Adapter vpa = (ViewPager2Adapter) vp2.getAdapter();
+                    vpa.replaceFragment(1, settingsFragment);
+                    vp2.setCurrentItem(1);
+
+
+
+                }
                 autoCompleteTextView.setText("");
             }
-        }
-    });
+        });
+
         return view;
     }
-
 }

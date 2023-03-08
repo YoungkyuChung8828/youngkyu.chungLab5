@@ -8,10 +8,15 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
 
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
+
+import com.google.android.material.snackbar.Snackbar;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,7 +25,11 @@ import android.widget.TextView;
  */
 public class SettingsFragment extends Fragment {
 
+
     private TextView textView;
+    private Switch switchview;
+    private String email ="";
+    private String nodata ="";
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -63,23 +72,33 @@ public class SettingsFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-
     }
+
     View view;
+
+    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
 
+
         textView = view.findViewById(R.id.textView);
+        switchview = view.findViewById(R.id.switchview);
+
         Bundle bundle = getArguments();
-        if(bundle !=null && bundle.containsKey("email")){
-            String email = bundle.getString("email");
+        if (bundle != null) {
+            email = bundle.getString("email","");
             textView.setText(email);
+        } else {
+            textView.setText(nodata);
         }
+        switchview.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            String message = isChecked ? "ON" : "OFF";
+            Snackbar.make(requireView(), message, Snackbar.LENGTH_SHORT).show();
+        });
 
         return view;
     }
-
 }

@@ -27,7 +27,9 @@ public class ViewPager2Adapter extends FragmentStateAdapter {
 
     public void setData(ArrayList<Fragment> fragments) { this.fragments = fragments; }
 
-
+    public void replaceFragment(int position, Fragment fragment) {
+        fragments.set(position, fragment);
+    }
 
 
 

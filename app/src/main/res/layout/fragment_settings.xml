@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:id="@+id/frame"
     tools:context=".SettingsFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -21,8 +21,15 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="150dp"
         android:layout_marginTop="340dp"
-        android:text="@string/no_data"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="13dp" />
+
+    <Switch
+        android:id="@+id/switchview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="250dp"
+        android:text="Switch" />
 
 </FrameLayout>
